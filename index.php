@@ -1,3 +1,15 @@
+<?php
+if (isset($_SESSION['type'])) {
+    switch ($_SESSION['type']) {
+        case 'user':
+            exit(header('Location: ./user/'));
+            break;
+        case 'admin':
+            exit(header('Location: ./admin/admindash.php'));
+            break;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -10,12 +22,10 @@
 </head>
 <body>
     <div class="container">
-        <br>
-        <br>
+        <br><br>
            
         <center><b id="login-name">Login Here</b></center>
-        <br>
-        <br>
+        <br><br>
         
         <div class="row">
             <div class="col-md-6 col-md-offset-3" id="login">
