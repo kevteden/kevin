@@ -1,13 +1,11 @@
 <?php
-$username="root";  
-$password="";  
-$hostname = "localhost";  
-//connection string with database  
-$dbhandle = mysqli_connect($hostname, $username, $password)  
-or die("Unable to connect to MySQL");  
-echo "";  
-// connect with database  
-$selected = mysqli_select_db($dbhandle, "carsystem")  
-or die("Could not connect to database");  
+$servername = "localhost";
+$username = "nasy";
+$password = "";
+$dbname = "carsystem";
 
-?>
+$dbhandle = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$dbhandle) {
+    die("Csonnection failed: " .mysqli_connect_error());
+}

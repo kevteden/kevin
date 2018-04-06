@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Send the user back to the login page if the user has not logged in.
+// Also if the user is not an admin send the person out of this file.
+if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'admin') {
+    header('Location: ../');
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -37,7 +46,7 @@
 <li><a href="users.html">Users</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
-<li><a href="index.html">Welcome,Kevin</a></li>
+<li><a href="index.html">Welcome, <?php echo ucfirst($_SESSION['firstname']); ?></a></li>
 <li><a href="do_logout.php">Logout</a></li>
 </ul>
 </div>
