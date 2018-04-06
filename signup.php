@@ -1,108 +1,138 @@
-
-
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-<meta charset = "UTF-8">
-<title>Bluff Enterprise</title>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="bootstrap/css/custom.css">
-<link rel="stylesheet" href="bootstrap/js/bootstrap.min.js">
+    <meta charset = "UTF-8">
+    <title>Sign up - Bluff Enterprise</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap/css/custom.css">
+    <link rel="stylesheet" href="bootstrap/js/bootstrap.min.js">
 </head>
 <body>
 
+    <div class="container">
+    <br>
+    <center><b id="login-name">Register Here</b></center>
+    <br>
+    <br>
+    <div class="row">
+    <div class="col-md-6 col-md-offset-3" id="login">
+    
+        <!-- Start form -->
+        <form method="post" action="signup.php" class="form-signin">
 
-<div class="container">
-<br>
-<center><b id="login-name">Register Here</b></center>
-<div class="row">
-<div class="col-md-6 col-md-offset-3" id="login">
+            <!-- Include PHP script for the login form -->   
+            <?php if (isset($_POST['submit'])) { ?> 
+                <div class="alert alert-danger">
+                    <span class="glyphicon glyphicon-info">
+                        <strong>
+                            <?php
+                                include './php_scripts/insert.php';
+                            ?>
+                        </strong>
+                    </span>
+                </div>
+            <?php } else {
+                echo "<p style='color: #fff; text-decoration: underline;text-align:center;'>Please be aware: All fields are required</p>";
+            } ?>
+            <!-- End inclusion of PHP script -->
+            
 
- <form method="post" action="insert.php" class="form-signin">		
-<div class="form-group">
-<label class="user">Enter First Name</label>
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-<input type="text" class="form-control" id="text1" name="firstname" placeholder="Enter First Name" value="" />
-</div>
-</div>		
+            <!-- First name -->
+            <div class="form-group">
+                <label class="user">Enter First Name</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" class="form-control" id="text1" name="firstname" 
+                    placeholder="Enter First Name" required value="<?php echo (isset($error)) ? $post['firstname'] : ''; ?>"/>
+                </div>
+            </div>
 
-<div class="form-group">
-<label class="user">Enter Last Name</label>
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-<input type="text" class="form-control" id="text1" name="lastname" placeholder="Enter Last Name" value="" />
-</div>
-</div>
+            <!-- Last name -->
+            <div class="form-group">
+                <label class="user">Enter Last Name</label>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" id="text1" name="lastname"
+                placeholder="Enter Last Name" required value="<?php echo (isset($error)) ? $post['lastname'] : ''; ?>"/>
+                </div>
+            </div>
 
-<div class="form-group">
-<label class="user">Enter Username</label>
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-<input type="text" class="form-control" id="text1" name="username" placeholder="Enter Username" value="" />
-</div>
-</div>
+            <!-- Username -->
+            <div class="form-group">
+                <label class="user">Enter Username</label>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" id="text1" name="username"
+                placeholder="Enter Username" required value="<?php echo (isset($error)) ? $post['username'] : ''; ?>"/>
+                </div>
+            </div>
 
-<div class="form-group">
-<label class="user">Enter Email</label>
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-<input type="text" class="form-control" id="text1" name="email" placeholder="Enter Email" value="" />
-</div>
-</div>
+            <!-- Email -->
+            <div class="form-group">
+                <label class="user">Enter Email</label>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" id="text1" name="email"
+                placeholder="Enter Email" required value="<?php echo (isset($error)) ? $post['email'] : ''; ?>"/>
+                </div>
+            </div>
 
-<div class="form-group">
-<label class="user"> Enter Address</label>
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-<input type="text" class="form-control" id="text1" name="address" placeholder="Enter Address" value="<?php if(isset($error)){echo $add;}?>" />
-</div>
-</div>
-<div class="form-group">
-<label class="user"> Enter Phone Number</label>
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-<input type="number" class="form-control" id="text1" name="phone" placeholder="Enter Phone Number">
-</div>
-</div>
-<div class="form-group">
-<label class="user">Enter Password</label>
-<div class="input-group">
-<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-<input type="password" class="form-control" id="text1" name="password" placeholder="Enter Password">
-</div>
-</div>
+            <!-- Address -->
+            <div class="form-group">
+                <label class="user"> Enter Address</label>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" id="text1" name="address"
+                placeholder="Enter Address" required value="<?php echo (isset($error)) ? $post['address'] : ''; ?>"/>
+                </div>
+            </div>
 
-<br>
-<div class="form-group">
- <input type="submit" class="btn btn-success" value="Signup" name="submit" style="border-radius:0px;">
-  <input type="reset" class="btn btn-danger" value="Reset" style="border-radius:0px;">
-</div>
-<br><br><br>
-<a href="login.php" style="color:white; font-size:20px; float:left">Have an account Already! Login</a>
-</form>
+            <!-- Phone number -->
+            <div class="form-group">
+                <label class="user"> Enter Phone Number (10 digits only)</label>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="text" class="form-control" pattern="{10}" title="Numbers only. 10 digits long" id="text1"
+                name="phone" placeholder="Enter Phone Number" required value="<?php echo (isset($error)) ? $post['phone'] : ''; ?>">
+                </div>
+            </div>
 
+            <!-- Password -->
+            <div class="form-group">
+                <label class="user">Enter Password (At least 6 chars)</label>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" id="text1" name="password"
+                placeholder="Enter Password" required value="<?php echo (isset($error)) ? $post['password'] : ''; ?>">
+                </div>
+            </div>
 
+            <!-- Confirm password -->
+            <div class="form-group">
+                <label class="user">Confirm Password</label>
+                <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" id="text1" name="confirm"
+                placeholder="Enter Password" required value="<?php echo (isset($error)) ? $post['password'] : ''; ?>">
+                </div>
+            </div>
+            <br>
+            
+            <!-- Login buttons -->
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Signup" name="submit" style="border-radius:0px;">
+                <input type="reset" class="btn btn-danger" value="Reset" style="border-radius:0px;">
+            </div>
+            <br>
+            <br>
+            <br>
+            
+            <!-- Link to login page -->
+            <a href="./" style="color:white; font-size:20px; float:left">Have an account Already! Login</a>
+        </form> <!-- End form -->
+    </div>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

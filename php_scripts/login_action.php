@@ -1,63 +1,72 @@
 <?php
 session_start();
 try {
-    include '../config/dbconfig.php';
-    include 'functions.php';
+    include './config/dbconfig.php';
+    include './php_scripts/functions.php';
 
-    // Sanitize the form data
+    // Get the $_POST array. Sanitize each element. Store it inside $post variable an array
     $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    $username = sanitizeVar($post['username']);
-    $password = sanitizeVar($post['password']);
+    
+    // Get each element of the post array and sanitize it with the sanitizeVar function
+    $post = array_map('sanitizeVar', $post);
 
-
+    // Create a prepared statement. Makes queries faster and safer against SQL injections
+    $prep = mysqli_prepare($dbhandle, 'SELECT * FROM tbl_users WHERE username = ?');
+    
+    // Make username lowercase. Ensures case insensitivity
+    $post['username'] = strtolower($post['username']);
+    
     // Ensure username and password are not empty
-    if (empty($username) || empty($password)) {
+    if (empty($post['username']) || empty($post['password'])) {
+        $error = true;
         throw new Exception('LOGIN FAILED: Username and password cannot be empty');
     } else {
-        // Create a prepared statement
-        // Makes queries faster and safer agains SQL injections
-        $prep = mysqli_prepare($dbhandle, 'SELECT * FROM tbl_users WHERE username = ?');
         
         // Bind parameters. Parameters are the 'question marks (?)'
-        mysqli_stmt_bind_param($prep, 's', $username);
+        mysqli_stmt_bind_param($prep, 's', $post['username']);
         
-        // Run the statement
+        // Execute the prepared statement
         mysqli_stmt_execute($prep);
         
         // Fetch the result of the query into variables
-        mysqli_stmt_bind_result($prep, $uid, $fn, $ln, $un, $em, $add, $ph, $passHash, $type);
+        mysqli_stmt_bind_result($prep, $userID, $firstname, $lastname, $userName, $email, $address, $phone, $passHash, $type);
     
         // Fetch details and check to see if user exists
         if (!mysqli_stmt_fetch($prep)) {
-            throw new Exception('LOGIN FAILED: User not found');
+            $error = true;
+            throw new Exception('LOGIN FAILED: Username not found');
         
         // Ensure the password the person entered is correct
-        } elseif (!password_verify($password, $passHash)) {
-            throw new Exception('LOGIN FAILED: Wrong details. Please check username and password');
+        } elseif (!password_verify($post['password'], $passHash)) {
+            $error = true;
+            throw new Exception('LOGIN FAILED: Make sure you entered the right password');
         } else {
             // Create session variables
-            $_SESSION['userid'] = $uid;
-            $_SESSION['firstname'] = $fn;
-            $_SESSION['lastname'] = $ln;
-            $_SESSION['email'] = $em;
-            $_SESSION['address'] = $add;
-            $_SESSION['phone'] = $ph;
-            $_SESSION['type'] = $type;
+            $_SESSION['type']      = $type;
+            $_SESSION['phone']     = $phone;
+            $_SESSION['email']     = $email;
+            $_SESSION['userid']    = $userID;
+            $_SESSION['address']   = $address;
+            $_SESSION['lastname']  = $lastname;
+            $_SESSION['firstname'] = $firstname;
             
-            // Log the user in depending on his/her type
-            switch ($_SESSION['type']) {
-                case 'admin':
-                    exit(header('Location: ../admin/admindash.php'));
-                    break;
-                case 'user':
-                    exit(header('Location: ../user/'));
-                    break;
+            // If there is no error then log the user in depending on his/her type
+            if (empty($error)) {
+                switch ($_SESSION['type']) {
+                    case 'admin':
+                        closeConnections($prep, $dbhandle); // Close prepared statement and database connection
+                        exit(header('Location: ./admin/admindash.php'));
+                        break;
+                    case 'user':
+                        closeConnections($prep, $dbhandle); // Close prepared statement and database connection
+                        exit(header('Location: ./user/'));
+                        break;
+                }
             }
         }
     }
 } catch (Exception $e) {
-    die($e->getMessage());
+    echo $e->getMessage();
 } finally {
-    mysqli_stmt_close($prep);   // Always close prepared statements
-    mysqli_close($dbhandle);    // Always close database connection
+    closeConnections($prep, $dbhandle); // Close prepared statement and db connection
 }
