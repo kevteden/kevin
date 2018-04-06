@@ -98,6 +98,7 @@ try {
                     
                     // Bind parameters
                     $userid = (int)$_SESSION['userid'];
+                    $destination = "{$imgName}.{$imgExt}";
                     mysqli_stmt_bind_param(
                         $prep,
                         'ssssssi',

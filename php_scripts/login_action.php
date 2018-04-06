@@ -21,7 +21,6 @@ try {
         $error = true;
         throw new Exception('LOGIN FAILED: Username and password cannot be empty');
     } else {
-        
         // Bind parameters. Parameters are the 'question marks (?)'
         mysqli_stmt_bind_param($prep, 's', $post['username']);
         

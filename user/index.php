@@ -26,6 +26,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     <link rel="stylesheet" href="css/paa.css" type="text/css"/>
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
     <link rel="stylesheet" href="css/kenn.css" type="text/css"/>
+    <link rel="stylesheet" href="css/custom.css" type="text/css"/>
     <title>Bluff Car Enterprise</title>
 </head>
 <body>

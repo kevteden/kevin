@@ -3,6 +3,9 @@ session_start();
 include_once '../config/dbconfig.php';
 $sql = "select * from tbl_cars";
 $result = mysqli_query($dbhandle, $sql);
+
+// Script to delete a party
+include '../php_scripts/delete_party.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +16,7 @@ $result = mysqli_query($dbhandle, $sql);
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <script type="text/javascript" src="jquery-1.11.3-jquery.min.js"></script>
@@ -21,6 +24,7 @@ $result = mysqli_query($dbhandle, $sql);
     <link rel="stylesheet" href="css/paa.css" type="text/css"/>
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
     <link rel="stylesheet" href="css/kenn.css" type="text/css"/>
+    <link rel="stylesheet" href="css/custom.css" type="text/css"/>
     <title>Bluff Car Enterprise</title>
 </head>
 <body>
@@ -76,9 +80,9 @@ $result = mysqli_query($dbhandle, $sql);
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="images/martin0.jpg">
+                <img src="images/benz.jpg">
                 <div class="carousel-caption">
-                <h1>Austin Martin</h1>
+                <h1>Benz</h1>
                 </div>
             </div>
 
@@ -137,15 +141,17 @@ $result = mysqli_query($dbhandle, $sql);
         <td><?php echo $row['description']?></td>
         <td><?php echo $row['mileage']?></td>
         <td><?php echo $row['price']?></td>
-        <td><img src="<?php echo $row['photo'] ?>" alt="car_image" height="120px" width="170px"></td>
+        <td><img src="./uploads/<?php echo $row['photo'] ?>" alt="car_image" height="120px" width="170px"></td>
         <td>
-        <a class="btn btn-info btn-sm"href="booking.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-order"></span>Book</a>
-        <a class="btn btn-info btn-sm"href="edit.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-edit"></span>Edit</a>
-        <a class="btn btn-danger btn-sm"href="index.php?delete=<?php echo $row['car_id']?>"onclick="return confirm('Are you sure you want to delete this record?')"><span class="glyphicon glyphicon-remove-circle"></span>Delete</a>
+            <a class="btn btn-info btn-sm"href="booking.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-order"></span>Book</a>
+            <a class="btn btn-info btn-sm"href="edit.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+            <a class="btn btn-danger btn-sm"href="carindex.php?delete=<?php echo $row['car_id'];?>&img=<?php echo $row['photo'];?>" onclick="return confirm('Are you sure you want to delete this record?')"><span class="glyphicon glyphicon-remove-circle"></span>Delete</a>
         </td>
     </tr>
     <?php
     }
+    } else {
+        echo "<p>No cars available at the moment</p>";
     }
     ?>
     </tbody>
