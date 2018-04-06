@@ -1,8 +1,8 @@
 <?php
 session_start();
 include_once '../config/dbconfig.php';
-
-$upload_dir = 'uploads/';
+$sql = "select * from tbl_cars";
+$result = mysqli_query($dbhandle, $sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,6 +43,7 @@ $upload_dir = 'uploads/';
                     <li><a href="#">Book</a></li>
                     <li><a href="#">Rent </a></li>
                     <li><a href="#">Order</a></li>
+                    <li><a href="../php_scripts/do_logout.php">Logout</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp;Gallery </a>
                         <ul class="dropdown-menu">
@@ -106,68 +107,51 @@ $upload_dir = 'uploads/';
 <br/>
 
 <div class="container">
-<div class="page-header">
+    <div class="page-header">
 
-<h3>Add New
-<a class="btn btn-default" href="carmod.php">
-<span class="glyphicon glyphicon-plus"></span>&nbsp;Add New
-</a>
-</h3>
-<table id="car_data" class="table table-bordered table-striped table-responsive">
-<thead>
-<tr>
-<th>Model</th>
-<th>Transmission</th>
-<th>Description</th>
-<th>Mileage</th>
-<th>Price</th>
-<th>Uploaded</th>
-<th>Car Image</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<?php
-$sql = "select * from tbl_cars";
-$result = mysqli_query($dbhandle,$sql);
-if(mysqli_num_rows($result)){
-    while ($row = mysqli_fetch_assoc($result)){
-
-?>
-<tr>
-<td><?php echo $row['model']?></td>
-<td><?php echo $row['transmission']?></td>
-<td><?php echo $row['description']?></td>
-<td><?php echo $row['mileage']?></td>
-<td><?php echo $row['price']?></td>
-<td><?php echo $row['user_id(4)']?></td>
-<td><img src="<?php echo $upload_dir.$row['photo'] ?> " height="120px" width="170px"></td>
-<td>
-<a class="btn btn-info btn-sm"href="booking.php?id=<?php echo $row['id']?>"><span class="glyphicon glyphicon-order"></span>Book</a>
-<a class="btn btn-info btn-sm"href="edit.php?id=<?php echo $row['id']?>"><span class="glyphicon glyphicon-edit"></span>Edit</a>
-<a class="btn btn-danger btn-sm"href="index.php?delete=<?php echo $row['id']?>"onclick="return confirm('Are you sure you want to delete this record?')"><span class="glyphicon glyphicon-remove-circle"></span>Delete</a>
-</td>
-</tr>
-<?php
-
+    <h3>Add New
+    <a class="btn btn-default" href="carmod.php">
+    <span class="glyphicon glyphicon-plus"></span>&nbsp;Add New
+    </a>
+    </h3>
+    <table id="car_data" class="table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+            <th>Model</th>
+            <th>Transmission</th>
+            <th>Description</th>
+            <th>Mileage</th>
+            <th>Price</th>
+            <th>Car Image</th>
+            <th>Action</th>
+            </tr>
+        </thead>
+    <tbody>
+    <?php
+    if (mysqli_num_rows($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+    ?>
+    <tr>
+        <td><?php echo $row['model']?></td>
+        <td><?php echo $row['transmission']?></td>
+        <td><?php echo $row['description']?></td>
+        <td><?php echo $row['mileage']?></td>
+        <td><?php echo $row['price']?></td>
+        <td><img src="<?php echo $row['photo'] ?>" alt="car_image" height="120px" width="170px"></td>
+        <td>
+        <a class="btn btn-info btn-sm"href="booking.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-order"></span>Book</a>
+        <a class="btn btn-info btn-sm"href="edit.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+        <a class="btn btn-danger btn-sm"href="index.php?delete=<?php echo $row['car_id']?>"onclick="return confirm('Are you sure you want to delete this record?')"><span class="glyphicon glyphicon-remove-circle"></span>Delete</a>
+        </td>
+    </tr>
+    <?php
     }
-}
-
-
-?>
-</tbody>
-</table>
+    }
+    ?>
+    </tbody>
+    </table>
+    </div>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
- <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

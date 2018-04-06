@@ -1,14 +1,11 @@
 <?php
 session_start();
-require_once('../config/connect.php');
-$upload_dir = 'uploads/';
-
-
+require_once '../config/connect.php';
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width,initial-scale = 1">
@@ -25,16 +22,17 @@ $upload_dir = 'uploads/';
     <title>Upload Image</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container"> <!-- Start container -->
         <!-- Header -->
         <div class="page-header">
             <h3>User List
-            <a class="btn btn-default" href="carindex.php">
+            <a class="btn btn-default" href="admindash.php">
             <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back
             </a>
             </h3>
         </div>
 
+        <!-- Include PHP script to run upload form -->
         <?php if (isset($_POST['btnSave'])) { ?>
         <div class="alert alert-danger">
         <span class="glyphicon glyphicon-info">
@@ -42,6 +40,7 @@ $upload_dir = 'uploads/';
         </span>
         </div>
         <?php } ?>
+        <!-- End include PHP script -->
 
         <!-- <div class="alert alert-success">
         <span class="glyphicon glyphicon-info">
@@ -56,7 +55,8 @@ $upload_dir = 'uploads/';
             <div class="form-group">
                 <label for="name" class="col-md-2">Model</label>
                 <div class="col-md-10">
-                <input type="text"  name="model"  class="form-control">
+                <input type="text"  name="model"  class="form-control" required
+                value=<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['model'] : ''; ?>>
                 </div>
             </div>
             
@@ -64,7 +64,8 @@ $upload_dir = 'uploads/';
             <div class="form-group">
                 <label for="position" class="col-md-2">Transmission</label>
                 <div class="col-md-10">
-                <input type="text"  name="transmission" id="" class="form-control">
+                <input type="text"  name="transmission" id="" class="form-control" required
+                value=<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['transmission'] : ''; ?>>
                 </div>
             </div>
             
@@ -72,7 +73,8 @@ $upload_dir = 'uploads/';
             <div class="form-group">
                 <label for="position" class="col-md-2">Description</label>
                 <div class="col-md-10">
-                <input type="text"  name="description" id="" class="form-control">
+                <input type="text"  name="description" id="" class="form-control" required
+                value=<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['description'] : ''; ?>>
                 </div>
             </div>
 
@@ -80,7 +82,8 @@ $upload_dir = 'uploads/';
             <div class="form-group">
                 <label for="position" class="col-md-2">Mileage</label>
                 <div class="col-md-10">
-                <input type="text"  name="mileage" id="" class="form-control">
+                <input type="text"  name="mileage" id="" class="form-control" required
+                value=<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['mileage'] : ''; ?>>
                 </div>
             </div>
             
@@ -88,7 +91,8 @@ $upload_dir = 'uploads/';
             <div class="form-group">
                 <label for="position" class="col-md-2">Price</label>
                 <div class="col-md-10">
-                <input type="text"  name="price" id="name" class="form-control">
+                <input type="text"  name="price" id="name" class="form-control" required
+                value=<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['price'] : ''; ?>>
                 </div>
             </div>
             
@@ -96,7 +100,7 @@ $upload_dir = 'uploads/';
             <div class="form-group">
                 <label for="photo" class="col-md-2">Select Car Image</label>
                 <div class="col-md-10">
-                <input type="file"  name="myfile">
+                <input type="file"  name="myfile" accept="image/*">
                 </div>
             </div>
             
@@ -108,8 +112,7 @@ $upload_dir = 'uploads/';
                 </div>
             </div>
         </form> <!-- End form -->
-    </div>
-    </div>
+    </div> <!-- End container -->
 
     <!-- JS -->
     <script src="bootstrap/js/bootstrap.min.js"></script>

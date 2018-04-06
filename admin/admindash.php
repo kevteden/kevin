@@ -46,6 +46,8 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'admin') {
                 <li><a href="carindex.php">Showroom</a></li>
                 <li><a href="post.html">Posts</a></li>
                 <li><a href="users.html">Users</a></li>
+                <li><a href="./carindex.php">View cars</a></li>
+                <li><a href="./carmod.php">Add a new car</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.html">Welcome, <?php echo ucfirst($_SESSION['firstname']); ?></a></li>
