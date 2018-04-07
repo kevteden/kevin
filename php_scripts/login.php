@@ -48,7 +48,7 @@ try {
             $_SESSION['lastname']  = $lastname;
             $_SESSION['firstname'] = $firstname;
             
-            // If there is no error then log the user in depending on his/her type
+            // If there is no error then log the user in depending on his/her access type
             if (empty($error)) {
                 switch ($_SESSION['type']) {
                     case 'admin':
