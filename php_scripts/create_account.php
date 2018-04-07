@@ -6,16 +6,19 @@ try {
 
         // Sanitize the post array
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        $post = array_map('sanitizeVar', $post);
-
-        // Grab all form details and sanitize them
-        $post['username']  = strtolower($post['username']); // Make username lowercase. Ensures case insensitivity
+        $post = array_map('sanitizeVar', $post); // 'sanitizeVar' is found in 'php_scripts/functions.php'
+        
+        // Sanitize the email
         $post['email'] = filter_var($post['email'], FILTER_SANITIZE_EMAIL);
+        
+        // Make username lowercase. Ensures case insensitivity
+        $post['username']  = strtolower($post['username']);
+        
 
         // Create a prepared statement
         // Protects against SQL injections and makes queries faster
-        $query = "INSERT INTO tbl_users (firstname, lastname, username, email, address, phone, password)
-        VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = 'INSERT INTO tbl_users (firstname, lastname, username, email, address, phone, password)
+        VALUES (?, ?, ?, ?, ?, ?, ?)';
 
         // Create prepared statement
         $prep = mysqli_prepare($dbhandle, $query);
