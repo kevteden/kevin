@@ -18,10 +18,10 @@ if (isset($_SESSION['type'])) {
 <head>
     <meta charset = "UTF-8">
     <title>Sign up - Bluff Enterprise</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bootstrap/css/custom.css">
-    <link rel="stylesheet" href="bootstrap/js/bootstrap.min.js">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap/css/custom.css">
+    <link rel="stylesheet" href="./assets/bootstrap/js/bootstrap.min.js">
 </head>
 <body>
     <div class="container">
@@ -142,6 +142,6 @@ if (isset($_SESSION['type'])) {
     </div>
 
     <!-- JS -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
