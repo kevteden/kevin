@@ -1,48 +1,8 @@
-body{
-margin:0;
-padding:0;	
-background:url("../../images/7061.jpg");
-background-size:cover;
-background-repeat:no-repeat;
-background-attachment:fixed;
-}
-#login-name{
-font-size:45px;
-font-family:Arabic typesetting;
-border-bottom-style:ridge;	
-color:red;
-}
-#login{
-background-color:#0D0D0D;
-min-height:500px;
-opacity:0.70;
-padding:40px 80px 40px 80px;
-box-shadow:-10px -10px 9px red;#33CC33	 
-}
-.user{
- font-family:Arabic typesetting;
- font-size:20px;
- color:white;
-}
-.input-group-addon{
-	background-color:#5CB85C;
-	border-color:#4CAE4C;
-	color:white;
-}
-#text1{
-	border-radius:0px;
-	height:40px;
+.item {
+    text-align: center;
 }
 
-#text2{
-	border-radius:0px;
-	height:40px;
-}
-
-.btn{
-	width:50%;
-	float:left;
- 
-	height:40px;
-	font-size:17px;
+.item img {
+    height: 450px !important;
+    width: 100%;
 }

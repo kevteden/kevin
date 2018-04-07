@@ -38,7 +38,7 @@ if (isset($_SESSION['type'])) {
             <?php if (isset($_POST['submit'])) { ?> 
                 <div class="alert alert-danger">
                     <span class="glyphicon glyphicon-info">
-                        <strong><?php include './php_scripts/insert.php'; ?></strong>
+                        <strong><?php include './php_scripts/create_account.php'; ?></strong>
                     </span>
                 </div>
             <?php } else {

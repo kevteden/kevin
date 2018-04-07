@@ -51,7 +51,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'admin') {
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.html">Welcome, <?php echo ucfirst($_SESSION['firstname']); ?></a></li>
-                <li><a href="../php_scripts/do_logout.php">Logout</a></li>
+                <li><a href="../php_scripts/logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>

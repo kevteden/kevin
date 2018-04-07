@@ -15,16 +15,10 @@
   </h1>
   
   
-<form method="post" action="do_logout.php">
+<form method="post" action="../php_scripts/logout.php">
 <input type="submit" name="logout" value="Logout"/>
 </form>
   
   
  </body>
  </html>
- 
- 
-
-	
- 
- 
