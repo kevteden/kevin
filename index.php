@@ -18,10 +18,10 @@ if (isset($_SESSION['type'])) {
 <head>
     <meta charset = "UTF-8">
     <title>Bluff Enterprise</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bootstrap/css/custom.css">
-    <link rel="stylesheet" href="bootstrap/js/bootstrap.min.js">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/custom.css">
+    <link rel="stylesheet" href="assets/bootstrap/js/bootstrap.min.js">
 </head>
 <body>
     <div class="container">
@@ -42,7 +42,7 @@ if (isset($_SESSION['type'])) {
                 <?php if (isset($_POST['submit'])) { ?> 
                     <div class="alert alert-danger">
                         <span class="glyphicon glyphicon-info">
-                            <strong><?php include './php_scripts/login_action.php';?></strong>
+                            <strong><?php include './php_scripts/login.php';?></strong>
                         </span>
                     </div>
                     <?php } ?>
@@ -84,6 +84,6 @@ if (isset($_SESSION['type'])) {
     </div>
     
     <!-- JS -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

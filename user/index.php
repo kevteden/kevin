@@ -15,18 +15,18 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width,initial-scale = 1">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-    <script type="text/javascript" src="jquery-1.11.3-jquery.min.js"></script>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/paa.css" type="text/css"/>
-    <link rel="stylesheet" href="css/style.css" type="text/css"/>
-    <link rel="stylesheet" href="css/kenn.css" type="text/css"/>
-    <link rel="stylesheet" href="css/custom.css" type="text/css"/>
+    <script type="text/javascript" src="../js/jquery-1.11.3-jquery.min.js"></script>
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/paa.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/kenn.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/custom.css" type="text/css"/>
     <title>Bluff Car Enterprise</title>
 </head>
 <body>
@@ -43,21 +43,21 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-            <li><a href="#"><?php echo 'Welcome ' . ucfirst($_SESSION['firstname']); ?></a></li>
-            <li class=""><a href="#">Home </a></li>
-            <li><a href="carindex.php">Showroom</a></li>
-            <li><a href="#">Book</a></li>
-            <li><a href="#">Rent </a></li>
-            <li><a href="#">Order</a></li>
-            <li><a href="../php_scripts/do_logout.php">Logout</a></li>
-            <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp;Gallery </a>
-            <ul class="dropdown-menu">
-            <li><a href="#">Car Index</a></li>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="do_logout.php">Logout</a></li>
-            </ul>
-            </li>
+                <li><a href="#"><?php echo 'Welcome ' . ucfirst($_SESSION['firstname']); ?></a></li>
+                <li class=""><a href="#">Home </a></li>
+                <li><a href="carindex.php">Showroom</a></li>
+                <li><a href="#">Book</a></li>
+                <li><a href="#">Rent </a></li>
+                <li><a href="#">Order</a></li>
+                <li><a href="../php_scripts/logout.php">Logout</a></li>
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp;Gallery </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Car Index</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="../php_scripts/logout.php">Logout</a></li>
+                </ul>
+                </li>
             </ul>
             <form class="navbar-form navbar-right">
             <div class="form-group">
@@ -70,7 +70,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
             </ul>
             </div>
         </div>
-    </nav> <!-- end navbar -->
+    </nav> <!-- End navbar -->
 
     <!-- Carousel -->
     <div id="mycarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
@@ -81,19 +81,19 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </ol>
     <div class="carousel-inner">
     <div class="item active">
-    <img src="images/martin0.jpg">
+    <img src="../assets/images/martin0.jpg">
     <div class="carousel-caption">
     <h1>Austin Martin</h1>
     </div>
     </div>
     <div class="item">
-    <img src="images/mclaren1.jpg">
+    <img src="../assets/images/mclaren1.jpg">
     <div class="carousel-caption">
     <h1>McLaren F1</h1>
     </div>
     </div>
     <div class="item">
-    <img src="images/BMW-X7.jpg">
+    <img src="../assets/images/BMW-X7.jpg">
     <div class="carousel-caption">
     <h1>2018 BMW-X7</h1>
     </div>
@@ -124,7 +124,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     <div class="row">
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/list_d0611f32-c720-450b-995b-8f7452559080.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/list_d0611f32-c720-450b-995b-8f7452559080.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Bugatti</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -134,7 +134,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </div>
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/mclaren-p1-gtr.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/mclaren-p1-gtr.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Header1</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -144,7 +144,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </div>
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/bmw.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/bmw.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Header2</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -154,7 +154,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </div>
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/nice.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/nice.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Header2</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -169,7 +169,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     <div class="row">
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/list_d0611f32-c720-450b-995b-8f7452559080.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/list_d0611f32-c720-450b-995b-8f7452559080.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Bugatti</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -179,7 +179,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </div>
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/mclaren-p1-gtr.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/mclaren-p1-gtr.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Header1</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -189,7 +189,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </div>
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/bmw.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/bmw.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Header2</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -199,7 +199,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </div>
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/nice.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/nice.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Header2</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -213,7 +213,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     <div class="row">
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/list_d0611f32-c720-450b-995b-8f7452559080.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/list_d0611f32-c720-450b-995b-8f7452559080.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Bugatti</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -223,7 +223,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </div>
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/mclaren-p1-gtr.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/mclaren-p1-gtr.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Header1</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -233,7 +233,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </div>
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/bmw.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/bmw.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Header2</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -243,7 +243,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
     </div>
     <div class="col-sm-3">
     <a href="#" class="thumbnail">
-    <img src="images/nice.jpg" alt="Bugatti" style="width:250px;height:180px;">
+    <img src="../assets/images/nice.jpg" alt="Bugatti" style="width:250px;height:180px;">
     </a>
     <h3>Header2</h3>
     <p>The amount of money left in the bank is sufficient to last us for our lifetime. So will
@@ -256,11 +256,11 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'user') {
 
     <div id = "time">
     <?php
-    $Today = date('y:m:d',time());
+    $Today = date('y:m:d', time());
     $new = date('l, F d, Y', strtotime($Today));
     echo $new;
     ?>
     </div>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -13,18 +13,18 @@ include '../php_scripts/delete_car.php';
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width,initial-scale = 1">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-    <script type="text/javascript" src="jquery-1.11.3-jquery.min.js"></script>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/paa.css" type="text/css"/>
-    <link rel="stylesheet" href="css/style.css" type="text/css"/>
-    <link rel="stylesheet" href="css/kenn.css" type="text/css"/>
-    <link rel="stylesheet" href="css/custom.css" type="text/css"/>
+    <script type="text/javascript" src="../js/jquery-1.11.3-jquery.min.js"></script>
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/paa.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/kenn.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/custom.css" type="text/css"/>
     <title>Bluff Car Enterprise</title>
 </head>
 <body>
@@ -47,13 +47,13 @@ include '../php_scripts/delete_car.php';
                     <li><a href="#">Book</a></li>
                     <li><a href="#">Rent </a></li>
                     <li><a href="#">Order</a></li>
-                    <li><a href="../php_scripts/do_logout.php">Logout</a></li>
+                    <li><a href="../php_scripts/logout.php">Logout</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp;Gallery </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Car Index</a></li>
                             <li><a href="#">Dashboard</a></li>
-                            <li><a href="do_logout.php">Logout</a></li>
+                            <li><a href="logout.php">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -80,21 +80,21 @@ include '../php_scripts/delete_car.php';
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="images/benz.jpg">
+                <img src="../assets/images/benz.jpg">
                 <div class="carousel-caption">
                 <h1>Benz</h1>
                 </div>
             </div>
 
             <div class="item">
-                <img src="images/mclaren1.jpg">
+                <img src="../assets/images/mclaren1.jpg">
                 <div class="carousel-caption">
                 <h1>McLaren F1</h1>
                 </div>
             </div>
 
             <div class="item">
-                <img src="images/BMW-X7.jpg">
+                <img src="../assets/images/BMW-X7.jpg">
                 <div class="carousel-caption">
                 <h1>2018 BMW-X7</h1>
                 </div>
@@ -164,6 +164,6 @@ include '../php_scripts/delete_car.php';
 <?php mysqli_close($dbhandle); ?>
 
 <!-- JS -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
