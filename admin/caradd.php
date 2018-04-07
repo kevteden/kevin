@@ -1,5 +1,10 @@
 <?php
-include_once 'config/connect.php';
+
+if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'admin') {
+    header('Location: ../');
+    exit;
+}
+include_once 'config/dbconfig.php';
 $upload_dir = 'uploads/';
 
 if(isset($_POST['btnSave'])){

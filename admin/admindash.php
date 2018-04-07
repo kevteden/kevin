@@ -2,7 +2,7 @@
 session_start();
 // Send the user back to the login page if the user has not logged in.
 // Also if the user is not an admin send the person out of this file.
-if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'admin') {
+if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'admin') {
     header('Location: ../');
     exit;
 }
@@ -167,6 +167,7 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'admin') {
         </div> <!-- End container -->
     </section> <!-- End main section -->
     
+    <!-- JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
