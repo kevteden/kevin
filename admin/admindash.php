@@ -13,8 +13,8 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'admin') {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width,initial-scale = 1">
-    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="../assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <!-- <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+    <!-- <link href="../assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> -->
     <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
@@ -22,10 +22,10 @@ if (!isset($_SESSION['type']) && $_SESSION['type'] !== 'admin') {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="../js/jquery-1.11.3-jquery.min.js"></script>
     <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/paa.css" type="text/css"/>
+    <!-- <link rel="stylesheet" href="../css/paa.css" type="text/css"/> -->
     <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-    <link rel="stylesheet" href="../css/kenn.css" type="text/css"/>
-    <link rel="stylesheet" href="../css/custom.css" type="text/css"/>
+    <!-- <link rel="stylesheet" href="../css/kenn.css" type="text/css"/> -->
+    <!-- <link rel="stylesheet" href="../css/custom.css" type="text/css"/> -->
     <title>Bluff Car Enterprise</title>
 </head>
 <body>
