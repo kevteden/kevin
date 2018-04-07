@@ -1,9 +1,9 @@
 <?php
 try {
-    include './config/dbconfig.php';
-    include './php_scripts/functions.php';
-
     if (isset($_POST['submit'])) {
+        include './config/dbconfig.php';
+        include './php_scripts/functions.php';
+
         // Sanitize the post array
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $post = array_map('sanitizeVar', $post);
@@ -81,6 +81,8 @@ try {
                 throw new Exception(mysqli_error($dbhandle));
             }
         }
+    } else {
+        exit(header('Location: ../'));
     }
 } catch (Exception $e) {
     echo $e->getMessage();

@@ -9,4 +9,6 @@ if (isset($_GET['delete'])) {
             exit;
         }
     }
+} else {
+    exit(header('Location: ../'));
 }

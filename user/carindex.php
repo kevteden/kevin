@@ -1,7 +1,11 @@
 <?php
 session_start();
 
-include '../config/dbconfig.php';
+if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'user') {
+    exit(header('Location: ../'));
+} else {
+    include '../config/dbconfig.php';
+}
 
 ?>
 

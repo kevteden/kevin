@@ -1,4 +1,7 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    exit(header('Location: ../'));
+}
 // Function to sanitize form variables
 function sanitizeVar($var)
 {
