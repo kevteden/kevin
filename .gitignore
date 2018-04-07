@@ -2,3 +2,4 @@ config/dbconfig.php
 admin/uploads/*.jpg
 admin/uploads/*.png
 admin/uploads/*.gif
+.vscode/

@@ -58,6 +58,7 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'user') {
                     <li><a href="../php_scripts/logout.php">Logout</a></li>
                 </ul>
                 </li>
+                <li><a href="#">DATE: <?php echo date('l, F d, Y');?></a></li>
             </ul>
             <form class="navbar-form navbar-right">
             <div class="form-group">
@@ -254,13 +255,6 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'user') {
     </div>
     </div>
 
-    <div id = "time">
-    <?php
-    $Today = date('y:m:d', time());
-    $new = date('l, F d, Y', strtotime($Today));
-    echo $new;
-    ?>
-    </div>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
