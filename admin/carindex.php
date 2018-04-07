@@ -5,7 +5,7 @@ $sql = "select * from tbl_cars";
 $result = mysqli_query($dbhandle, $sql);
 
 // Script to delete a party
-include '../php_scripts/delete_party.php';
+include '../php_scripts/delete_car.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -158,6 +158,10 @@ include '../php_scripts/delete_party.php';
     </table>
     </div>
 </div>
+
+<?php mysqli_close($dbhandle); ?>
+
+<!-- JS -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
