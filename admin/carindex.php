@@ -5,7 +5,10 @@ $sql = "select * from tbl_cars";
 $result = mysqli_query($dbhandle, $sql);
 
 // Script to delete a party
-include '../php_scripts/delete_car.php';
+if (isset($_GET['delete'])) {
+    include '../php_scripts/delete_car.php';
+}
+
 ?>
 <!DOCTYPE html>
 <html>
