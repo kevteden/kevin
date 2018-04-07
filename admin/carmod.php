@@ -9,13 +9,13 @@ require_once '../config/connect.php';
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width,initial-scale = 1">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-    <script type="text/javascript" src="jquery-1.11.3-jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.11.3-jquery.min.js"></script>
     <script src ="https://ajax.gooleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="nav.css" type="text/css"/>
@@ -36,7 +36,7 @@ require_once '../config/connect.php';
         <?php if (isset($_POST['btnSave'])) { ?>
         <div class="alert alert-danger">
         <span class="glyphicon glyphicon-info">
-        <strong><?php include '../php_scripts/addcar.php'; ?></strong>
+        <strong><?php include '../php_scripts/add_car.php'; ?></strong>
         </span>
         </div>
         <?php } ?>
