@@ -110,6 +110,7 @@ include '../php_scripts/delete_car.php';
     </div> <!-- End carousel -->
 <br/>
 
+<!-- Start page content -->
 <div class="container">
     <div class="page-header">
 
@@ -118,6 +119,7 @@ include '../php_scripts/delete_car.php';
     <span class="glyphicon glyphicon-plus"></span>&nbsp;Add New
     </a>
     </h3>
+    <!-- Start table to display cars -->
     <table id="car_data" class="table table-bordered table-striped table-responsive">
         <thead>
             <tr>
@@ -155,7 +157,7 @@ include '../php_scripts/delete_car.php';
     }
     ?>
     </tbody>
-    </table>
+    </table> <!-- End table displaying cars -->
     </div>
 </div>
 
