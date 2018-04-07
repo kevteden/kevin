@@ -9,12 +9,10 @@
     <link rel="stylesheet" href="bootstrap/js/bootstrap.min.js">
 </head>
 <body>
-
     <div class="container">
-    <br>
     <center><b id="login-name">Register Here</b></center>
     <br>
-    <br>
+
     <div class="row">
     <div class="col-md-6 col-md-offset-3" id="login">
     
@@ -126,13 +124,13 @@
             </div>
             <br>
             <br>
-            <br>
             
             <!-- Link to login page -->
             <a href="./" style="color:white; font-size:20px; float:left">Have an account Already! Login</a>
         </form> <!-- End form -->
     </div>
 
+    <!-- JS -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
