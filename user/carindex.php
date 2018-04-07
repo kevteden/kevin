@@ -80,7 +80,7 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'user') {
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="../assets/images/martin0.jpg">
+                <img src="../assets/images/benz.jpg">
                 <div class="carousel-caption">
                     <h1>Austin Martin</h1>
                 </div>
