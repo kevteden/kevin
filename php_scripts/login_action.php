@@ -1,5 +1,4 @@
 <?php
-session_start();
 try {
     include './config/dbconfig.php';
     include './php_scripts/functions.php';

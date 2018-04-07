@@ -42,11 +42,7 @@ if (isset($_SESSION['type'])) {
                 <?php if (isset($_POST['submit'])) { ?> 
                     <div class="alert alert-danger">
                         <span class="glyphicon glyphicon-info">
-                            <strong>
-                                <?php
-                                    include './php_scripts/login_action.php';
-                                ?>
-                            </strong>
+                            <strong><?php include './php_scripts/login_action.php';?></strong>
                         </span>
                     </div>
                     <?php } ?>

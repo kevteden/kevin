@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Redirect the user if they have already logged in
+if (isset($_SESSION['type'])) {
+    switch ($_SESSION['type']) {
+        case 'user':
+            exit(header('Location: ./user/'));
+            break;
+        case 'admin':
+            exit(header('Location: ./admin/admindash.php'));
+            break;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -23,11 +38,7 @@
             <?php if (isset($_POST['submit'])) { ?> 
                 <div class="alert alert-danger">
                     <span class="glyphicon glyphicon-info">
-                        <strong>
-                            <?php
-                                include './php_scripts/insert.php';
-                            ?>
-                        </strong>
+                        <strong><?php include './php_scripts/insert.php'; ?></strong>
                     </span>
                 </div>
             <?php } else {
