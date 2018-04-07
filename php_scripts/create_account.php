@@ -10,7 +10,7 @@ try {
 
         // Grab all form details and sanitize them
         $post['username']  = strtolower($post['username']); // Make username lowercase. Ensures case insensitivity
-        $post['email']     = filter_var($post['email'], FILTER_SANITIZE_EMAIL);
+        $post['email'] = filter_var($post['email'], FILTER_SANITIZE_EMAIL);
 
         // Create a prepared statement
         // Protects against SQL injections and makes queries faster
@@ -32,30 +32,37 @@ try {
         ) {
             $error = true;
             throw new Exception('All fields are required');
+        
         // Make sure email is valid
         } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
             $error = true;
             throw new Exception('You entered an invalid email format');
+        
         // Make sure the user does not use their username as password
         } elseif ($post['password'] === $post['username']) {
             $error = true;
             throw new Exception('You cannot use your username as your password');
+        
         // Make sure the person does not user any of their names as password
         } elseif ($post['password'] === $post['firstname'] || $post['password'] === $post['lastname']) {
             $error = true;
             throw new Exception('You cannot use any of your names as your password');
+        
         // Make sure password is at least 6 characters long
         } elseif (strlen($post['password']) < 6) {
             $error = true;
             throw new Exception('Password must be at least 6 characters long');
+        
         // Make sure the passwords are the same
         } elseif ($post['password'] !== $post['confirm']) {
             $error = true;
             throw new Exception('Passwords do not match');
+        
         // Make sure phone number contains only numbers
         } elseif (!is_numeric($post['phone'])) {
             $error = true;
             throw new Exception('Only numbers allowed for phone number');
+        
         // Make sure the supplied phone number is exactly 10 digits long
         } elseif (strlen($post['phone']) !== 10) {
             $error = true;
