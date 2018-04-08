@@ -151,7 +151,7 @@ if (isset($_GET['delete'])) {
             <!-- Book button -->
             <a class="btn btn-info btn-sm"href="booking.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-order"></span>Book</a>
             <!-- Edit button -->
-            <a class="btn btn-info btn-sm"href="edit.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-edit"></span>Edit</a>
+            <a class="btn btn-info btn-sm"href="caredit.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-edit"></span>Edit</a>
             <!-- Delete button -->
             <a class="btn btn-danger btn-sm"href="carindex.php?delete=<?php echo $row['car_id'];?>&img=<?php echo $row['photo'];?>" onclick="return confirm('Are you sure you want to delete this record?')">
                 <span class="glyphicon glyphicon-remove-circle"></span>

@@ -17,7 +17,7 @@ try {
             empty($post['price'])
         ) {
             $error = true;
-            throw new Exception('FAILED: All fields are required');
+            throw new Exception('FAILED: All fields are required. Including selecting a picture');
         // Mileage and price fields must contain only numbers
         } elseif (!is_numeric($post['mileage']) || !is_numeric($post['price'])) {
             $error = true;
