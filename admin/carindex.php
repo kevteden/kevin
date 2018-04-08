@@ -162,7 +162,7 @@ if (isset($_GET['delete'])) {
     <?php
     }
     } else {
-        echo "<p>No cars available at the moment</p>";
+        echo "<h3>No cars available at the moment</h3>";
     }
     ?>
     </tbody>
