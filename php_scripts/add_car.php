@@ -4,10 +4,12 @@ try {
         include '../php_scripts/functions.php';
         include '../config/dbconfig.php';
 
-        // Grab post data
+        // Grab post data and sanitize it
         $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         $post = array_map('sanitizeVar', $post);
 
+        // Let's validate all data
+        // No field should be empty
         if (empty($post['model']) ||
             empty($post['transmission']) ||
             empty($post['description']) ||
@@ -15,7 +17,11 @@ try {
             empty($post['price'])
         ) {
             $error = true;
-            throw new Exception('UPLOAD FAILED: All fields are required');
+            throw new Exception('FAILED: All fields are required');
+        // Mileage and price fields must contain only numbers
+        } elseif (!is_numeric($post['mileage']) || !is_numeric($post['price'])) {
+            $error = true;
+            throw new Exception('FAILED: Only numbers allowed for "Mileage" and "Price" fields. No letters allowed');
         }
         
         // Grab particulars of uploaded file
@@ -83,7 +89,6 @@ try {
             if (is_uploaded_file($imgTmp)) {
                 // Remove executable permissions on the file.
                 if (!chmod($imgTmp, 0644)) {
-                    // This exception is perhaps not necessary for the user to see. Consider what you can do here.
                     $error = true;
                     throw new Exception('UPLOAD FAILED: Could not change file permissions');
                 }
