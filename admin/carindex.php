@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'admin') {
+    exit(header('Location: ../'));
+}
 include_once '../config/dbconfig.php';
 $sql = "select * from tbl_cars";
 $result = mysqli_query($dbhandle, $sql);
