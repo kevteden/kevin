@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$username = "nasy";
+$username = "root";
 $password = "";
 $dbname = "carsystem";
 

@@ -25,7 +25,7 @@ try {
             $error = true;
             throw new Exception('FAILED: All fields are required. Including selecting a picture');
         // Mileage and price fields must contain only numbers
-        } elseif (!is_numeric($post['mileage']) || !is_numeric($post['price'])) {
+        } elseif (!is_string($post['mileage']) || !is_string($post['price'])) {
             $error = true;
             throw new Exception('FAILED: Only numbers allowed for "Mileage" and "Price" fields. No letters allowed');
         } else {

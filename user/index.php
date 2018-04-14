@@ -43,11 +43,13 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'user') {
             <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="#"><?php echo 'Welcome ' . ucfirst($_SESSION['firstname']); ?></a></li>
-                <li class=""><a href="#">Home </a></li>
+                <li class=""><a href="index.php">Home </a></li>
                 <li><a href="carindex.php">Showroom</a></li>
-                <li><a href="#">Book</a></li>
-                <li><a href="#">Rent </a></li>
-                <li><a href="#">Order</a></li>
+                <li><a href="bookindex.php">View Bookings</a></li>
+                <li><a href="rentindex.php"> View Rentals </a></li>
+                <li><a href="orderindex.php"> View Orders</a></li>
+				<li><a href="forum.php">Enter Forum</a></li>
+				
                 <li><a href="../php_scripts/logout.php">Logout</a></li>
                 <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp;Gallery </a>
@@ -57,7 +59,6 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'user') {
                     <li><a href="../php_scripts/logout.php">Logout</a></li>
                 </ul>
                 </li>
-                <li><a href="#">DATE: <?php echo date('l, F d, Y');?></a></li>
             </ul>
             <form class="navbar-form navbar-right">
             <div class="form-group">
@@ -65,10 +66,6 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'user') {
             </div>
             <button type="submit" class="btn btn-default">Search</button>
             </form>
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
-            </ul>
-            </div>
         </div>
     </nav> <!-- End navbar -->
 
@@ -109,7 +106,7 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'user') {
         </a>
     </div> <!-- End carousel -->
 
-    
+     <li><a href="#">DATE: <?php echo date('l, F d, Y');?></a></li>
     <br/>
     <div class="container">
     <div class="jumbotron text-center">

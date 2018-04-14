@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'admin') {
+if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'user') {
     header('Location: ../');
     exit;
 } else {
@@ -33,87 +33,64 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'admin') {
         <!-- Header -->
         <div class="page-header">
             <h3>
-                <a class="btn btn-default" href="carindex.php">
+                <a class="btn btn-default" href="bookindex.php">
                     <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back
                 </a> 
-            Add a new car
+            Book Test Drive
             </h3>
         </div>
 
         <h5 style="color: #f00; text-decoration: underline;">Please note all fields are required</h5>
         <br>
 
-        <!-- Include PHP script to run upload form -->
-        <?php if (isset($_POST['btnSave'])) { ?>
-        <div class="alert alert-danger">
+        <!-- Include PHP script to run booking form -->
+        <?php if (isset($_POST['book']) || isset($_GET['id'])) { ?>
+        <div class="alert alert-success">
         <span class="glyphicon glyphicon-info">
-        <strong><?php include '../php_scripts/add_car.php'; ?></strong>
+        <strong><?php include '../php_scripts/book_car.php'; ?></strong>
         </span>
         </div>
         <?php } ?>
         <!-- End include PHP script -->
 
         <!-- Start form -->
-        <form action="carmod.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <form action="bookmod.php" method="post" class="form-horizontal">
 
             <!-- Model -->
+			 <!-- Car in question -->
             <div class="form-group">
-                <label for="name" class="col-md-2">Model</label>
+                <label for="position" class="col-md-2">Car In Question:</label>
                 <div class="col-md-10">
-                <input type="text"  name="model"  class="form-control" required
-                value="<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['model'] : ''; ?>">
+                <input type="text"  name="car_booked" id="name" class="form-control" disabled
+                value="<?php echo (isset($_GET['id']) && isset($car)) ? $car : ''; ?>">
                 </div>
             </div>
             
-            <!-- Transmission -->
+            <!-- Date -->
             <div class="form-group">
-                <label for="position" class="col-md-2">Transmission</label>
+                <label for="position" class="col-md-2">Date:</label>
                 <div class="col-md-10">
-                <input type="text"  name="transmission" id="" class="form-control" required
-                value="<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['transmission'] : ''; ?>">
-                </div>
-            </div>
-            
-            <!-- Description -->
-            <div class="form-group">
-                <label for="position" class="col-md-2">Description</label>
-                <div class="col-md-10">
-                <input type="text"  name="description" id="" class="form-control" required
-                value="<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['description'] : ''; ?>">
+                <input type="text"  name="date" id="" class="form-control" required
+                value="">
                 </div>
             </div>
 
-            <!-- Mileage -->
+            <!-- Time -->
             <div class="form-group">
-                <label for="position" class="col-md-2">Mileage</label>
+                <label for="position" class="col-md-2">Time:</label>
                 <div class="col-md-10">
-                <input type="text"  name="mileage" id="" class="form-control" required
-                value="<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['mileage'] : ''; ?>">
+                <input type="text"  name="time" id="" class="form-control" required
+                value="">
                 </div>
             </div>
             
-            <!-- Price -->
-            <div class="form-group">
-                <label for="position" class="col-md-2">Price</label>
-                <div class="col-md-10">
-                <input type="text"  name="price" id="name" class="form-control" required
-                value="<?php echo (isset($_POST['btnSave']) && isset($error)) ? $post['price'] : ''; ?>">
-                </div>
-            </div>
-            
-            <!-- Image -->
-            <div class="form-group">
-                <label for="photo" class="col-md-2">Select Car Image</label>
-                <div class="col-md-10">
-                <input type="file"  name="myfile" accept="image/*">
-                </div>
-            </div>
-            
+           
+     
             <!-- Save / Submit button -->
             <div class="form-group">
                 <label class="col-md-2"></label>
                 <div class="col-md-10">
-                    <input type="submit" name="btnSave" value="Add Car" class="btn btn-success">
+                    <input type="submit" name="book" value="Book Test Drive" class="btn btn-success">
                 </div>
             </div>
         </form> <!-- End form -->

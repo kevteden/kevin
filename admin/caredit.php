@@ -26,7 +26,7 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'admin') {
         <!-- Header -->
         <div class="page-header">
             <h3>
-                <a class="btn btn-default" href="admindash.php">
+                <a class="btn btn-default" href="carindex.php">
                     <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Back
                 </a> 
             Update car details

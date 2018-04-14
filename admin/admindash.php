@@ -7,121 +7,165 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'admin') {
     exit;
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width = device-width,initial-scale = 1">
-    <!-- <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
-    <!-- <link href="../assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> -->
-    <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
-    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/jquery-1.11.3-jquery.min.js"></script>
-    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="../css/paa.css" type="text/css"/> -->
-    <link rel="stylesheet" href="../css/style.css" type="text/css"/>
-    <!-- <link rel="stylesheet" href="../css/kenn.css" type="text/css"/> -->
-    <!-- <link rel="stylesheet" href="../css/custom.css" type="text/css"/> -->
-    <title>Bluff Car Enterprise</title>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluff Enterprise</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
-    <!-- Start navbar -->
-    <nav class="navbar navbar-default">
-        <div class="container">
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="col">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">AdminStrap </a>
+                <a class="navbar-brand" href="admindash.php"> Bluff Enterprise</a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> DATE:  <?php echo date('l, F d, Y');?> &nbsp; <a href="../php_scripts/logout.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    <img src="assets/img/me.png" class="user-image img-responsive"/>
+					</li>
+				
+					
+                    <li>
+                        <a class="active-menu"  href="admindash.php"><i class="fa fa-dashboard fa-2x"></i> Dashboard</a>
+                    </li>
+                     <li>
+                        <a  href="./carindex.php"><i class="fa fa-desktop fa-2x"></i>Showroom</a>
+                    </li>
+                    <li>
+                        <a  href="./carmod.php"><i class="fa fa-user fa-2x"></i>Add New Car</a>
+                    </li>
+						   <li  >
+                        <a   href="chart.html"><i class="fa fa-user fa-2x"></i> Forum</a>
+                    </li>	
+                      <li  >
+                        <a  href="carindex.php"><i class="fa fa-user fa-2x"></i> View Car</a>
+                    </li>
+                    <li  >
+                        <a  href="form.html"><i class="fa fa-edit fa-2x"></i> Book </a>
+                    </li>				
+					
+					                   
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-2x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Second Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+
+                                </ul>
+                               
+                            </li>
+                        </ul>
+                      </li>  
+                  <li  >
+                        <a  href="blank.html"><i class="fa fa-square-o fa-2x"></i> Blank Page</a>
+                    </li>	
+                </ul>
+               
             </div>
             
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                <li class="active"><a href="admindash.php">Dashboard</a></li>
-                <li><a href="carindex.php">Showroom</a></li>
-                <li><a href="post.html">Posts</a></li>
-                <li><a href="users.html">Users</a></li>
-                <li><a href="./carindex.php">View cars</a></li>
-                <li><a href="./carmod.php">Add a new car</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.html">Welcome, <?php echo ucfirst($_SESSION['firstname']); ?></a></li>
-                <li><a href="../php_scripts/logout.php">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav> <!-- End navbar -->
-
-    <!-- Start header -->
-    <header id="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard <small>Manage Your Site</small></h1>
-                </div>
-                <div class="col-md-2">
-                    <div class="dropdown create">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="col">
-                            Create Content <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown-Menu1">
-                            <li><a href="#">Add Page</a></li>
-                            <li><a href="#">Add Post</a></li>
-                            <li><a href="#">Add User</a></li>
-                        </ul>
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Admin Dashboard</h2>   
+                        <h4>Welcome,  <?php echo ucfirst($_SESSION['firstname']); ?></h4>
                     </div>
+                </div>              
+                 <!-- /. ROW  -->
+                  <hr />
+                <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6">           
+			<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-red set-icon">
+                    <i class="fa fa-envelope-o"></i>
+                </span>
+                <div class="text-box" >
+                    <p class="main-text">120 New</p>
+                    <p class="text-muted">Messages</p>
                 </div>
-            </div>
-        </div>
-    </header> <!-- End header -->
-
-    <!-- Start breadcrumbs -->
-    <section id="breadcrumb">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li class="active">Dashboard</li>
-            </ol>
-        </div>
-    </section> <!-- End breadcrumbs -->
-
-    <!-- Start main section -->
-    <section id="main">
-        <div class="container"> <!-- Container -->
-            <div class="row"> <!-- Row -->
-                <div class="col-md-3">
-                    <div class="list-group">
-                        <a href="index.html" class="list-group-item active main-color-bg">
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
-                        </a>
-                        <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
-                        <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts <span class="badge">33</span></a>
-                        <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> User <span class="badge">203</span></a>
-                    </div>
-                    
-                    <div class="well">
-                        <h4>Disk Space Used</h4>
-                        <div class="progress">
-                            <div class="progress-bar" role="progress-bar" aria-valuenow="60" aria-valluemin="0" aria-valuemax="100" style="width:60%">
-                            60%
-                            </div>
-                        </div>
-                        <h4>Bandwith Used</h4>
-                        <div class="progress">
-                            <div class="progress-bar" role="progress-bar" aria-valuenow="60" aria-valluemin="0" aria-valuemax="100" style="width:40%">
-                            40%
-                            </div>
-                        </div>
-                    </div>
+             </div>
+		     </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">           
+			<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-green set-icon">
+                    <i class="fa fa-bars"></i>
+                </span>
+                <div class="text-box" >
+                    <p class="main-text">30 Tasks</p>
+                    <p class="text-muted">Remaining</p>
                 </div>
-
-                <div class="col-md-9">
+             </div>
+		     </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">           
+			<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-blue set-icon">
+                    <i class="fa fa-bell-o"></i>
+                </span>
+                <div class="text-box" >
+                    <p class="main-text">240 New</p>
+                    <p class="text-muted">Notifications</p>
+                </div>
+             </div>
+		     </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">           
+			<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-brown set-icon">
+                    <i class="fa fa-rocket"></i>
+                </span>
+                <div class="text-box" >
+                    <p class="main-text">3 Orders</p>
+                    <p class="text-muted">Pending</p>
+                </div>
+             </div>
+		     </div>
+			</div>
+                 <!-- /. ROW  -->
+                <hr />                
+            
+               <div class="col-md-9">
                     <div class="panel panel-default">
                         <div class="panel-heading main-color-bg">
                             <h3 class="panel-title">Website Overview</h3>
@@ -156,18 +200,25 @@ if (!isset($_SESSION['type']) || $_SESSION['type'] !== 'admin') {
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="panel panel-default">
-                        <div class="panel-heading"><h3 class="panel-title">Latest Users</h3></div>
-                        <div class="panel-body">Panel Content</div>
-                    </div>
-
-                </div>
-                </div> <!-- End row -->
-        </div> <!-- End container -->
-    </section> <!-- End main section -->
+              
+          
+           
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
     
-    <!-- JS -->
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+   
 </body>
 </html>

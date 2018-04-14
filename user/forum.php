@@ -34,9 +34,30 @@ if (isset($_GET['delete'])) {
     <link rel="stylesheet" href="../css/style.css" type="text/css"/>
     <link rel="stylesheet" href="../css/kenn.css" type="text/css"/>
     <link rel="stylesheet" href="../css/custom.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/forum.css" type="text/css"/>
+	<script>
+function ajax(){
+	
+	var req =  new XMLHttpRequest();
+	
+	req.onreadystatechange = function(){
+		
+		if (req.readyState == 4 && req.status == 200)
+		{
+		document.getElementById('chat').innerHTML = req.responseText;	
+			
+		}
+	}
+	
+	req.open('GET','chat.php',true);
+	req.send();
+}
+setInterval(function(){ajax()},1000);
+
+</script>
     <title>Bluff Car Enterprise</title>
 </head>
-<body>
+<body onload="ajax(); ">
     <!-- Start navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -55,13 +76,15 @@ if (isset($_GET['delete'])) {
                     <li><a href="carindex.php">Showroom</a></li>
                     <li><a href="bookindex.php">View Bookings</a></li>
                     <li><a href="rentindex.php">View Rentals </a></li>
-                    <li><a href="orderindex.php">View Order</a></li>
-					<li><a href="#">Enter Forum</a></li>
-                    <li><a href="../php_scripts/logout.php"></a></li>
+                    <li><a href="orderindex.php">Order</a></li>
+					<li><a href="forum.php">Enter Forum</a></li>
+                    <li><a href="../php_scripts/logout.php">Logout</a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="index.php"><span class="caret"></span>Client Upload </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span>&nbsp;Gallery </a>
                         <ul class="dropdown-menu">
-                            <li><a href="../php_scripts/logout.php">Logout</a></li>
+                            <li><a href="#">Car Index</a></li>
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="logout.php">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -118,121 +141,41 @@ if (isset($_GET['delete'])) {
     </div> <!-- End carousel -->
 <br/>
 
-<!-- Start page content -->
-<div class="container">
-    <div class="page-header">
-
-    
-    <!-- Start table to display cars -->
-    <table id="car_data" class="table table-bordered table-striped table-responsive">
-        <thead>
-            <tr>
-            <th>Model</th>
-            <th>Transmission</th>
-            <th>Description</th>
-            <th>Mileage</th>
-            <th>Price</th>
-            <th>Car Image</th>
-            <th>Action</th>
-            </tr>
-        </thead>
-    <tbody>
-    <?php
-    if (mysqli_num_rows($result)) {
-        while ($row = mysqli_fetch_assoc($result)) {
-    ?>
-    <tr>
-        <td><?php echo $row['model']?></td>
-        <td><?php echo $row['transmission']?></td>
-        <td><?php echo $row['description']?></td>
-        <td><?php echo $row['mileage']?>mph</td>
-        <td>$<?php echo $row['price']?></td>
-        <td><img src="../admin/uploads/<?php echo $row['photo'] ?>" alt="car_image" height="120px" width="170px"></td>
-        <td>
-            <!-- Book button -->
-            <a class="btn btn-info btn-sm"href="bookmod.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-order"></span>Book</a>
-			 <a class="btn btn-success btn-sm"href="bookmod.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-order"></span>Order</a>
-			  <a class="btn btn-warning btn-sm"href="bookmod.php?id=<?php echo $row['car_id']?>"><span class="glyphicon glyphicon-order"></span>Rent</a>
-        </td>
-    </tr>
-    <?php
-    }
-    } else {
-        echo "<h3>No cars available at the moment</h3>";
-    }
-    ?>
-    </tbody>
-    </table> <!-- End table displaying cars -->
-    </div>
+<?phpinclude_once '../config/db.php';?>
+<div id="container">
+<div id="chat_box">
+<div class="chatlogs">
+<div id="chat">
 </div>
+</div>
+</div>
+<form action="forum.php" method="post">
 
+<input type="text" name="name" placeholder="enter name"/>
+<textarea name="msg" placeholder="enter message"></textarea>
+<input type="submit" name="submit" value="Send"/>
+</form>
 
 <?php
 
-include_once '../config/dbconfig.php';
-
-if (isset($_GET['page'])){
-	$page = $_GET['page'];
-}else{
-	$page = 1;
-}
-if ($page == '' || $page == 1){
-	$page1 = 0;
-}else{
-	$page1 = ($page*10)-10;
+include_once '../config/db.php';
+if (isset($_POST['submit'])){
 	
-}
+	$name = $_POST['name'];
+	$msg = $_POST['msg'];
 	
-$sql = 'select * from tbl_cars order by car_id asc limit '.$page1.',10';
-$data = $dbhandle->query($sql);
-//print_r($data->fetch_all());
-
-while($row = $data->fetch_assoc()){
+	$insert = "INSERT INTO tbl_forum (name,msg) values ('$name','$msg')";
+	$run = $db->query($insert);
 	
-}
-
-//Pagination
-$sql = 'select * from tbl_cars';
-$data = $dbhandle->query($sql);
-$records = $data->num_rows;
-$records_pages = $records/10;
-$records_pages = ceil($records_pages);
-$prev = $page-1;
-$next = $page+1;
-
-echo '<ul class="pagination">';
-
-if($prev >= 1){
-	echo '<li><a href="?page='.$prev.'">Prev</a></li>';
-}
-
-if($records_pages >= 2){
-	for($r=1; $r <= $records_pages; $r++){
-		$active = $r == $page ? 'class="active"':'';
-		echo '<li><a href="?page='.$r.'" '.$active.'>'.$r.'</a></li>';
-		
+	if($run){
+		echo "<embed loop='false' hidden='true' autoplay='true'>";
 	}
-	
 }
 
-
-if($next <= $records_pages && $records_pages >= 2 ){
-	echo '<li><a href="?page='.$next.'">Next</a></li>';
-}
-
-
-
- echo '</ul>';
 
 
 ?>
-
-
-
-
-
-
-
+</div>
 
 
 
